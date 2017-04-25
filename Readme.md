@@ -2,7 +2,7 @@ Background: /lib is where my local 'modules' folder is. These are modules that a
 
 Following Apex structure of lambda's, src is the containing dir for the "project" as per Apex.
 
-Error can be found in the bundle: `/src/functions/hello/lib/index.js`
+Error can be found in the bundle: `/src/functions/hello/lib/index.js` line 263
 
 Steps to reproduce:
 
