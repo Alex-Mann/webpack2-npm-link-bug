@@ -1,39 +1,18 @@
+Background: /lib is where my local 'modules' folder is. These are modules that are not tied to the lambda function but are linked with `npm link`
 
-To run the example first setup your [AWS Credentials](http://apex.run/#aws-credentials), and ensure "role" in ./project.json is set to your Lambda function ARN.
+Following Apex structure of lambda's, src is the containing dir for the "project" as per Apex.
 
-Install NPM dependencies:
+Steps to reproduce:
 
-```
-$ npm install
-```
+1. cd to /lib/mailer
+2. `npm install` then `npm run build`
+3. `npm link` to globally link the mailer module
+4. cd to /, `npm link mailer` to link the module
+5. cd to /src/functions/hello to simulate the builder before deployment in apex
+6. ../../../node_modules/.bin/webpack --config ../../../webpack.config.babel.js --display-error-details --bail --progress to run webpack.
+7. Now go check /src/functions/hello/lib/index.js (this is where the compiled js should be after webpack bundles it up)
+8. Find 'webpackMissingModule() on line 263'
 
-Initialize the function role:
-```
-$ apex init
-```
+My whole goal is to use webpack as a nice bundling utility before I upload lambda functions with apex. Due to being mainly a solo developer I want to use npm link to show realtime changes to any modules I create, but right now I cannot get webpack to link in my symlinks.
 
-Add extra options from `project.json_stub` to generated `project.json` to include the runtime, handler and hook  options.
-
-Deploy the functions:
-
-```
-$ apex deploy
-```
-
-Try it out:
-
-```
-$ apex invoke hello
-```
-
-```
-$ apex invoke requester < event.json
-```
-
-```
-$ apex invoke requester-apex < event.json
-```
-
-```
-$ echo '{ "value": "Hello" }' | apex invoke uppercase
-```
+Any help is much appreciated!
