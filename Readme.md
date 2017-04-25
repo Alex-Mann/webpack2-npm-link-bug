@@ -2,6 +2,8 @@ Background: /lib is where my local 'modules' folder is. These are modules that a
 
 Following Apex structure of lambda's, src is the containing dir for the "project" as per Apex.
 
+Error can be found in the bundle: `/src/functions/hello/lib/index.js`
+
 Steps to reproduce:
 
 1. cd to /lib/mailer
