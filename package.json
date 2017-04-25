@@ -1,0 +1,25 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "Babel example",
+  "scripts": {
+    "clean": "rm -fr src/functions/hello/lib",
+    "compile": "babel src/functions/hello/src --out-dir src/functions/hello/lib"
+  },
+  "dependencies": {
+    "apex.js": "^2.0.0",
+    "axios": "0.15.2",
+    "bluebird": "^3.4.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-runtime": "^6.18.0",
+    "webpack": "2.3.1",
+    "webpack-dependency-suite": "^1.5.0"
+  }
+}

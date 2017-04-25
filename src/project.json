@@ -1,0 +1,15 @@
+{
+  "name": "toktumi-serverless",
+  "profile": "toktumi",
+  "description": "The serverless lambdas powering the various parts of the toktumi platform",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::836823504394:role/toktumi-serverless_lambda_function",
+  "environment": {},
+  "runtime": "nodejs6.10",
+  "handler": "lib.default",
+  "hooks": {
+    "clean": "rm -fr lib",
+    "build": "../../../node_modules/.bin/webpack --config ../../../webpack.config.babel.js --bail"
+  }
+}
